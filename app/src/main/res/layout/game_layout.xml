@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/game_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient">
+
+
+    <!--life1-->
+
+    <!--life3-->
+
+    <ImageView
+        android:id="@+id/life2"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/heart"
+        app:layout_constraintStart_toEndOf="@+id/life1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/life3"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/heart"
+        app:layout_constraintStart_toEndOf="@+id/life2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/life1"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/heart"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" /><!--life2-->
+
+    <Button
+        android:id="@+id/check_button"
+        android:layout_width="143dp"
+        android:layout_height="62dp"
+        android:layout_marginBottom="45dp"
+        android:background="@drawable/gamebutton"
+        android:text="Check"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/reset_button"
+        app:layout_constraintTop_toTopOf="@+id/horGuide2"
+        app:layout_constraintVertical_bias="1.0" /><!--check-->
+    <Button
+        android:id="@+id/reset_button"
+        android:layout_width="143dp"
+        android:layout_height="62dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="45dp"
+        android:background="@drawable/gamebutton"
+        android:text="Reset"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/check_button"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/horGuide2"
+        app:layout_constraintVertical_bias="1.0" /><!--reset-->
+
+    <TextView
+        android:id="@+id/guessbox"
+        android:autoSizeTextType="uniform"
+        android:layout_width="360dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/guess_box"
+        android:maxLines="1"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" /><!--main guess box-->
+
+    <ImageButton
+        android:id="@+id/hint"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@android:color/transparent"
+        android:scaleType="centerInside"
+        android:src="@drawable/ii"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" /><!--clue open i-->
+
+
+    <include
+        android:id="@+id/game_over_box"
+        layout="@layout/gameover_layout"
+        android:layout_width="368dp"
+        android:layout_height="wrap_content"
+        android:elevation="20dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5" /><!--game over box-->
+
+    <include
+        android:id="@+id/clue_box"
+        layout="@layout/clue_dialog_layout"
+        android:layout_width="373dp"
+        android:layout_height="245dp"
+        android:elevation="8dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5" /><!--clue box-->
+
+
+    <Button
+        android:id="@+id/click1"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/g_notpress"
+        android:foregroundGravity="center_vertical|center_horizontal"
+        android:gravity="center"
+        android:text="A"
+        android:textAlignment="gravity"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toTopOf="@id/click5"
+        app:layout_constraintEnd_toStartOf="@+id/verticalGuide1"
+        app:layout_constraintTop_toTopOf="@+id/horGuide1"
+        app:layout_constraintVertical_bias="0.5" />    <!--click 1-->
+
+
+    <Button
+        android:id="@+id/click2"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/g_notpress"
+        android:foregroundGravity="center_vertical|center_horizontal"
+        android:gravity="center"
+        android:text="B"
+        android:textAlignment="gravity"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toTopOf="@id/click6"
+        app:layout_constraintEnd_toStartOf="@+id/click3"
+        app:layout_constraintStart_toStartOf="@+id/verticalGuide1"
+        app:layout_constraintTop_toTopOf="@+id/horGuide1"
+        app:layout_constraintVertical_bias="0.0" /> <!--click 2-->
+
+
+    <Button
+        android:id="@+id/click3"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/g_notpress"
+        android:gravity="center"
+        android:text="C"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toTopOf="@id/click7"
+        app:layout_constraintEnd_toStartOf="@id/verticalGuide2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@id/click2"
+        app:layout_constraintTop_toTopOf="@id/horGuide1"
+        app:layout_constraintVertical_bias="0.5" />    <!--click 3-->
+
+
+    <Button
+        android:id="@+id/click4"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/g_notpress"
+        android:foregroundGravity="center_vertical|center_horizontal"
+        android:gravity="center"
+        android:text="A"
+        android:textAlignment="gravity"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toTopOf="@id/click8"
+        app:layout_constraintStart_toStartOf="@+id/verticalGuide2"
+        app:layout_constraintTop_toTopOf="@+id/horGuide1" />    <!--click 4-->
+
+
+    <Button
+        android:id="@+id/click5"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@drawable/g_notpress"
+        android:foregroundGravity="center_vertical|center_horizontal"
+        android:gravity="center"
+        android:text="A"
+        android:textAlignment="gravity"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toTopOf="@+id/click9"
+        app:layout_constraintEnd_toStartOf="@+id/verticalGuide1"
+        app:layout_constraintTop_toBottomOf="@id/click1" />    <!--click 5-->
+
+
+    <Button
+        android:id="@+id/click6"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@drawable/g_notpress"
+        android:foregroundGravity="center_vertical|center_horizontal"
+        android:gravity="center"
+        android:text="A"
+        android:textAlignment="gravity"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toTopOf="@+id/click10"
+        app:layout_constraintEnd_toStartOf="@+id/click7"
+        app:layout_constraintStart_toStartOf="@+id/verticalGuide1"
+        app:layout_constraintTop_toBottomOf="@id/click2" />    <!--click 6-->
+
+
+    <Button
+        android:id="@+id/click7"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@drawable/g_notpress"
+        android:foregroundGravity="center_vertical|center_horizontal"
+        android:gravity="center"
+        android:text="A"
+        android:textAlignment="gravity"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toTopOf="@+id/click11"
+        app:layout_constraintEnd_toStartOf="@+id/verticalGuide2"
+        app:layout_constraintStart_toEndOf="@+id/click6"
+        app:layout_constraintTop_toBottomOf="@id/click3" />    <!--click 7-->
+
+
+    <Button
+        android:id="@+id/click8"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@drawable/g_notpress"
+        android:foregroundGravity="center_vertical|center_horizontal"
+        android:gravity="center"
+        android:text="A"
+        android:textAlignment="gravity"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toTopOf="@+id/click12"
+        app:layout_constraintStart_toStartOf="@+id/verticalGuide2"
+        app:layout_constraintTop_toBottomOf="@+id/click4" />    <!--click 8-->
+
+
+    <Button
+        android:id="@+id/click9"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@drawable/g_notpress"
+        android:foregroundGravity="center_vertical|center_horizontal"
+        android:gravity="center"
+        android:text="A"
+        android:textAlignment="gravity"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toTopOf="@+id/click13"
+        app:layout_constraintEnd_toStartOf="@+id/verticalGuide1"
+        app:layout_constraintTop_toBottomOf="@+id/click5" />    <!--click 9-->
+
+
+    <Button
+        android:id="@+id/click10"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@drawable/g_notpress"
+        android:foregroundGravity="center_vertical|center_horizontal"
+        android:gravity="center"
+        android:text="A"
+        android:textAlignment="gravity"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toTopOf="@+id/click14"
+        app:layout_constraintEnd_toStartOf="@+id/click11"
+        app:layout_constraintStart_toStartOf="@+id/verticalGuide1"
+        app:layout_constraintTop_toBottomOf="@+id/click6" />    <!--click 10-->
+
+
+    <Button
+        android:id="@+id/click11"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@drawable/g_notpress"
+        android:foregroundGravity="center_vertical|center_horizontal"
+        android:gravity="center"
+        android:text="A"
+        android:textAlignment="gravity"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toTopOf="@+id/click15"
+        app:layout_constraintEnd_toStartOf="@+id/verticalGuide2"
+        app:layout_constraintStart_toEndOf="@+id/click10"
+        app:layout_constraintTop_toBottomOf="@+id/click7" />    <!--click 11-->
+
+
+    <Button
+        android:id="@+id/click12"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@drawable/g_notpress"
+        android:foregroundGravity="center_vertical|center_horizontal"
+        android:gravity="center"
+        android:text="A"
+        android:textAlignment="gravity"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toTopOf="@+id/click16"
+        app:layout_constraintStart_toStartOf="@+id/verticalGuide2"
+        app:layout_constraintTop_toBottomOf="@+id/click8" />    <!--click 12-->
+
+
+    <Button
+        android:id="@+id/click13"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/g_notpress"
+        android:foregroundGravity="center_vertical|center_horizontal"
+        android:gravity="center"
+        android:text="A"
+        android:textAlignment="gravity"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toTopOf="@+id/horGuide2"
+        app:layout_constraintEnd_toStartOf="@+id/verticalGuide1"
+        app:layout_constraintTop_toBottomOf="@+id/click9" /><!--click 13-->
+    <Button
+        android:id="@+id/click14"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/g_notpress"
+        android:foregroundGravity="center_vertical|center_horizontal"
+        android:gravity="center"
+        android:text="A"
+        android:textAlignment="gravity"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toTopOf="@+id/horGuide2"
+        app:layout_constraintEnd_toStartOf="@+id/click15"
+        app:layout_constraintStart_toStartOf="@+id/verticalGuide1"
+        app:layout_constraintTop_toBottomOf="@+id/click10" /><!--click 14-->
+
+    <Button
+        android:id="@+id/click15"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/g_notpress"
+        android:foregroundGravity="center_vertical|center_horizontal"
+        android:gravity="center"
+        android:text="A"
+        android:textAlignment="gravity"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toTopOf="@+id/horGuide2"
+        app:layout_constraintEnd_toStartOf="@+id/verticalGuide2"
+        app:layout_constraintStart_toEndOf="@+id/click14"
+        app:layout_constraintTop_toBottomOf="@+id/click11" /><!--click 15-->
+    <Button
+        android:id="@+id/click16"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/g_notpress"
+        android:foregroundGravity="center_vertical|center_horizontal"
+        android:gravity="center"
+        android:text="A"
+        android:textAlignment="gravity"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toTopOf="@+id/horGuide2"
+        app:layout_constraintStart_toStartOf="@+id/verticalGuide2"
+        app:layout_constraintTop_toBottomOf="@+id/click12" /><!--click 16-->
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/verticalGuide1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".25" /><!--vertical guide 1-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/verticalGuide2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".75" /><!--vertical guide 2-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/horGuide1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.27770177" /><!--horizontal guide 1-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/horGuide2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.8" />
+
+    <!--horizontal guide 2-->
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
