@@ -16,7 +16,7 @@ import java.util.Random
 
 class GameActivity : ComponentActivity() {
     lateinit var builder: AlertDialog.Builder
-    var guess: String = ""
+    var guess=""
     lateinit var buttons: Array<Button>
     lateinit var word: String
     var score=0
@@ -27,6 +27,7 @@ class GameActivity : ComponentActivity() {
     lateinit var check:Button
     var life=3
     lateinit var lifepic: Array<ImageView>
+    lateinit var da_sh:String
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,8 +41,8 @@ class GameActivity : ComponentActivity() {
         word = intent.getStringExtra("word").toString().trim()
         clue = intent.getStringExtra("clue").toString().trim()
         lifepic=arrayOf(findViewById(R.id.life1),findViewById(R.id.life2),findViewById(R.id.life3))
-
-
+        da_sh="_ ".repeat(word.length)
+        guessbox.text=da_sh
         //button declaration
         buttons = Array<Button>(16) { i ->
             findViewById<Button>(
@@ -92,7 +93,7 @@ class GameActivity : ComponentActivity() {
             }
 
             guess = ""
-            guessbox.text = guess
+            guessbox.text = da_sh
             life -= 1
             Toast.makeText(this, "Incorrect Guess! Rem life=$life", Toast.LENGTH_SHORT).show()
             lifepic[life].setColorFilter(R.color.grey)
@@ -133,7 +134,7 @@ class GameActivity : ComponentActivity() {
         }
 
         guess = ""
-        guessbox.text = guess
+        guessbox.text = da_sh
     }
 
     private fun jumble() {
@@ -163,7 +164,12 @@ class GameActivity : ComponentActivity() {
         gameOverDialog.show()
         var hom: Button = gameOverOpen.findViewById(R.id.home)
         var play: Button = gameOverOpen.findViewById(R.id.play)
+        var state:TextView = gameOverOpen.findViewById(R.id.wonlose)
         datastore(score)
+        var win="YOU WON!"
+        var lose="YOU LOST!, CORRECT WORD=$word"
+        if (life==0){state.text =lose}
+        else{state.text =win}
 
         val intent = Intent(this, HomeActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
